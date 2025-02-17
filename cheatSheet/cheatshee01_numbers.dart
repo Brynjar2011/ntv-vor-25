@@ -27,7 +27,7 @@ void main (List<String> arguments) {
   print("Hello $firstName $lastName");
   */
 
-  String firstName = "Haukur Doddi";
+  String firstName = "Haukur Éoddi";
   String lastName = "Gunnarsson";
   String fullName = firstName + " " + lastName;
   String url = "ntv.is";
@@ -39,9 +39,41 @@ void main (List<String> arguments) {
 
   String username = names[0] + names[1].substring(0,1) + lastName.substring(0,3);
   username = username.toLowerCase();
+  username = removeIcelandicLetters(username);
   print(username);
 
   String emailAddress = username + "@" + url;
   print(emailAddress);
 
+}
+
+String removeIcelandicLetters(String input) {
+  Map<String, String> icelandicToLatin = {
+    'ð': 'd',
+    'þ': 'th',
+    'á': 'a',
+    'é': 'e',
+    'í': 'i',
+    'ó': 'o',
+    'ú': 'u',
+    'ý': 'y',
+    'ö': 'o',
+    'Æ': 'Ae',
+    'æ': 'ae',
+    'Ð': 'D',
+    'Þ': 'Th',
+    'Á': 'A',
+    'É': 'E',
+    'Í': 'I',
+    'Ó': 'O',
+    'Ú': 'U',
+    'Ý': 'Y',
+    'Ö': 'O'
+  };
+
+  icelandicToLatin.forEach((key, value) {
+    input = input.replaceAll(key, value);
+  });
+
+  return input;
 }

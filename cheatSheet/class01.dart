@@ -7,12 +7,21 @@ void main(List<String> arguments) {
     Store Message and Name in seperate variable.
    */
 
+  String firstName = "Hrönn";
+  String lastName = "Valgeirsdóttir";
+  String fullName = firstName + " " + lastName;
+  String message = "Góðan daginn ";
+  print(message + fullName);
+
   /* 1. Find a quote from a famous person you admire. Print the quote and the name of its
   author. Your output should look something like the following, including the
   quotation marks:
   1. Albert Einstein once said, 'A person who never made a mistake never tried
   anything new.'
   */
+
+
+
 
   /*
     2. Assign a message to a variable, and print that message. Then change the value of
