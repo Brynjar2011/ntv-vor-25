@@ -20,13 +20,23 @@ void main(List<String> arguments) {
   anything new.'
   */
 
-
+  String quoteLine = "'Life is like a box of chocolates, you never know what you're going to get.'";
+  String personName = "Forrest Gump";
+  print ("$personName once said, $quoteLine");
 
 
   /*
     2. Assign a message to a variable, and print that message. Then change the value of
   the variable to a new message, and print the new message.
    */
+
+  String message1 = "Liverpool best og Doucouré er ræfill";
+  print(message1);
+  message1 = "Liverpool er langbest og Richarlison er ræfill";
+  print(message1);
+  String newmessage1 = message1.replaceAll ("er langbest", "vinnur ensku deildina");
+  print(newmessage1);
+
 
   /*
     3.  Remove all the spaces from the rhyme. And print the modified rhyme.
