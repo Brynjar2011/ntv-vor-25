@@ -9,6 +9,7 @@ void main (List<String> arguments) {
 
   String SSN = "031181-3569";
   String fixSSN = SSN.replaceAll("-","");
+  print(fixSSN);
   //replaceAll er notað til þess að taka í burtu fyrri hlutann ss "-"
   int SSNLength = fixSSN.length;
   print(SSNLength);

@@ -42,6 +42,12 @@ void main(List<String> arguments) {
     3.  Remove all the spaces from the rhyme. And print the modified rhyme.
    */
   String NureseryRyhme = "Eena, meena, mina, mo, Catch a mouse by the toe; If he squeals let him go, Eeena, meena, mina, mo.";
+
+  String fixNureseryRyme = NureseryRyhme.replaceAll(" ", "");
+  print(fixNureseryRyme);
+
+
+
   /*
    4. Prompt a user for their full name (first name and last name)
     1. Store the users entry.
