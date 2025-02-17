@@ -27,7 +27,7 @@ void main (List<String> arguments) {
   print("Hello $firstName $lastName");
   */
 
-  String firstName = "Haukur Éoddi";
+  String firstName = "Haúkur Éoddi";
   String lastName = "Gunnarsson";
   String fullName = firstName + " " + lastName;
   String url = "ntv.is";
