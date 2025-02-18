@@ -1,5 +1,9 @@
 import 'package:ntv_vor_25/methods.dart';
+import 'dart:io';
+import 'dart:convert';
+
 void main(List<String> arguments) {
+
   /*
     0. Create a personal message. Use a variable to represent a person's name, and print a
     message to that person. Your message should be simple, such as 'Good morning
@@ -56,6 +60,22 @@ void main(List<String> arguments) {
     4. Capitalise and display the users full name with each word having a capital
     first letter, and the other letters being lowercase.
    */
+  print("Hvað heitir þú?");
+  String firstName2 = stdin.readLineSync(encoding: utf8).toString();
+
+  print("Hvert er eftirnafn þitt?");
+  String lastName2 = stdin.readLineSync(encoding: utf8).toString();
+  print("Sæll $firstName2 $lastName2");
+  String fullName2 = firstName2 + " " + lastName2;
+  String capsName1 = firstName2[0].toUpperCase() + firstName2.substring(1).toLowerCase();
+  String capsName2 = lastName2[0].toUpperCase() + lastName2.substring(1).toLowerCase();
+  print(capsName1 + " " + capsName2);
+
+  firstName2 = firstName2.replaceAll(firstName2, "Haukur");
+  print("Sæll $firstName2 $lastName2");
+
+
+
 
   /*
     5. Display the following SSN on the correct Format:
@@ -64,7 +84,22 @@ void main(List<String> arguments) {
   String SSN1 = "200689-2409";
   String SSN2 = "200689 2409";
   String SSN3 = "2 006 8924 09";
+
+  String newSSN1 = SSN1.replaceAll("-", "");
+  print (newSSN1);
+  String newSSN2 = SSN2.replaceAll(" ", "");
+  print (newSSN2);
+  String newSSN3 = SSN3.replaceAll(" ", "");
+  print (newSSN3);
+
+
   /*
   Bónus task calculate the age from the SSN.
    */
+  String birthDate = newSSN1.substring(4,6);
+  int birthDate2 = int.parse(birthDate);
+  int thisYear = DateTime.now().year;
+  int birthYear = 1900 + birthDate2;
+  int age = thisYear - birthYear;
+  print("Þú ert $age ára");
 }
