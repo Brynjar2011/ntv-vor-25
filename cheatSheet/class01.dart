@@ -17,6 +17,9 @@ void main(List<String> arguments) {
   String message = "Góðan daginn ";
   print(message + fullName);
 
+  String person = "Haukur";
+  print("Hello $person how are you?");
+
   /* 1. Find a quote from a famous person you admire. Print the quote and the name of its
   author. Your output should look something like the following, including the
   quotation marks:
