@@ -8,15 +8,14 @@ void main() {
   bool pizzaOrder = true;
   while (pizzaOrder) {
     String topping = stdin.readLineSync().toString();
-    print("I'll add $topping on your pizza");
+    print("Write 'quit' to leave.");
+
 
     if(topping.toLowerCase() == 'quit'){
-     // break;
-      pizzaOrder = false;
+     break;
+
     }
-  else {
-    print ("I'll add $topping on your pizza");
-    }
+
   }
 
   String word = 'NTV';

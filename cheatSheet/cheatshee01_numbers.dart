@@ -75,5 +75,5 @@ String removeIcelandicLetters(String input) {
     input = input.replaceAll(key, value);
   });
 
-  return input;
+
 }
