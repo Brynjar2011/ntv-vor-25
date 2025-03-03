@@ -5,10 +5,10 @@ void main() {
   bool orderMenu = true;
   print("Welcome to Haukur's burgers \nHere is the menu:");
 
-  List <List<dynamic>> menu = [
-    ["Ostborgari", 500],
-    ["Beikon borgari", 700],
-    ["Haukurinn", 1000]];
+  List menu = [
+    ["Ostborgari ", 500],
+    ["Beikon borgari ", 700],
+    ["Haukurinn ", 1000]];
 
   List emptyListkr = [];
   List emptyListName = [];

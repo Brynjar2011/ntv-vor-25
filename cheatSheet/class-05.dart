@@ -31,4 +31,10 @@ void main() {
   teamsPL.removeAt(7);
   print(teamsPL);
 
+  teamsPL.removeRange(1,3);
+  print(teamsPL);
+
+  teamsPL.removeLast();
+  print(teamsPL);
+
 }
