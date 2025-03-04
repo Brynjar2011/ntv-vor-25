@@ -29,13 +29,13 @@ void main() {
 
   //þetta er loop-an sem "heldur pöntun opinni og býður upp á mismunandi möguleika".
   while (orderSomething) {
-    print(
-        "Hvað má bjóða þér? Sláðu inn númer af matseðli (1-6)\neða skráðu inn 'lokið' þegar þú ert búinn að panta.");
+    print("Hvað má bjóða þér? Sláðu inn númer af matseðli (1-6)\neða skráðu inn 'lokið' þegar þú ert búinn að panta.");
     print("Ef þú vilt fjarlægja eitthvað úr pöntun sláðu inn 'taka út'");
     String customerOrder = stdin.readLineSync(encoding: utf8).toString();
 
     //sett inn try til að bregðast við/svara  villu t.d. nota string í input í stað int.
     try {
+
       //ljúka pöntun og gefur svo samantekt í rest
       if (customerOrder == "lokið") {
         orderSomething = false;
