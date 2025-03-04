@@ -53,14 +53,11 @@ void main() {
         else {
           print("Veldu númer til að taka út");
           for (int i = 0; i < orderMenu.length; i++) {
-            print((i + 1).toString() +
-                ". ${orderMenu[i]} - ${orderPrices[i]} kr");
+            print((i + 1).toString() + ". ${orderMenu[i]} - ${orderPrices[i]} kr");
           }
 
           //Hér er kemur user input (gert ráð fyrir ísl texta í user input - notað úr cheatshee01_numbers)
-          String removeFromOrder = stdin
-              .readLineSync(encoding: utf8)
-              .toString();
+          String removeFromOrder = stdin.readLineSync(encoding: utf8).toString();
 
           //try bregaðst við input sem er ekki int
           try {
@@ -71,15 +68,21 @@ void main() {
             það undir "if" statment.....gekk ekki.*/
             int removeItem = int.parse(removeFromOrder) - 1;
 
-            /*Set if statment skilyrði stæ/jafnt 0 og ekki fleir en objects í listanum orderMenu
+            /*Set if statment skilyrði stæ/jafnt 0 og ekki fleiri en objects í listanum orderMenu
             set síðan skipanir um að fjarlægja sem int úr "empty" listunum fyrir rétti og verð
-            sem búið er að safnast á fyrri skrefum við pöntun*/
+            sem búið er að safnast á fyrri skrefum við pöntun, fæ þetta samt ekki rétt þegar
+            ég ætla að prenta út hvaða hlut ég fjarlægði úr pöntun - réttur hlutur fer samt úr pöntun*/
             if (removeItem >= 0 && removeItem < orderMenu.length) {
               int startRemove = removeItem;
-              orderMenu.removeAt(startRemove);
-              orderPrices.removeAt(startRemove);
+              orderMenu.remove(orderMenu[startRemove]);
+              orderPrices.remove(orderPrices[startRemove]);
 
-              print("Tók ${menu[startRemove]} úr pöntuninni");
+              print("Tók ${orderMenu[startRemove]} úr pöntun");
+
+
+             // int printRemoveItem = int.parse(orderMenu[startRemove]) - 1;
+
+             // print("Tók $printRemoveItem úr pöntuninni");
             }
             //ef int gildi passar ekki við það sem er í listanum þá kemur texti
             else {
