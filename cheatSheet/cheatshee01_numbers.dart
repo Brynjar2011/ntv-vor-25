@@ -74,6 +74,6 @@ String removeIcelandicLetters(String input) {
   icelandicToLatin.forEach((key, value) {
     input = input.replaceAll(key, value);
   });
-
+  return input;
 
 }
