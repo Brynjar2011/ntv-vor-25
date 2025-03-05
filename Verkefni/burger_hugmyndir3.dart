@@ -73,11 +73,18 @@ void main() {
             sem búið er að safnast á fyrri skrefum við pöntun, fæ þetta samt ekki rétt þegar
             ég ætla að prenta út hvaða hlut ég fjarlægði úr pöntun - réttur hlutur fer samt úr pöntun*/
             if (removeItem >= 0 && removeItem < orderMenu.length) {
+
+            /*Skv Claude þarf ég að geyma það sem ég tók út í þessari breytu -String removedItem = orderMenu[removeItem];
+             - annars er ég alltaf að reyna að setja það sem ég er búinn að taka út í output(print) en
+              það er ekki lengur til staðar í listanum.
+             */
+              String removedItem = orderMenu[removeItem];
+
               int startRemove = removeItem;
               orderMenu.remove(orderMenu[startRemove]);
               orderPrices.remove(orderPrices[startRemove]);
 
-              print("Tók ${orderMenu[startRemove]} úr pöntun");
+              print("Tók $removedItem úr pöntun");
 
 
              // int printRemoveItem = int.parse(orderMenu[startRemove]) - 1;
