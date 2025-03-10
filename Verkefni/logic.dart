@@ -4,9 +4,10 @@ class fact {
   footballTeam team;
   footballPlayer player;
   String action;
+  int time;
 
 
-  fact({required this.team, required this.player, required this.action});
+  fact({required this.team, required this.player, required this.action, required this.time});
 }
 
 class footballGame {
@@ -28,7 +29,7 @@ class footballGame {
   void printMatchFacts(){
     print("===== MATCH SUMMARY =====");
     for(fact matchFact in this.matchFacts){
-      print("${matchFact.team.name} - ${matchFact.player.getName()} ${matchFact.action} ");
+      print("${matchFact.team.name} - ${matchFact.player.getName()} ${matchFact.action} - ${matchFact.time} mín");
     }
     print("=====================");
   }
@@ -50,14 +51,14 @@ class footballGame {
           print("Og hann skorar!");
           fact tempfact = fact(team: this.homeTeam,
               player: this.homeTeam.players[randomNumber3 + 1],
-              action: "skoraði mark");
+              action: "skoraði mark", time: this.time);
           this.matchFacts.add(tempfact);
           this.homeTeamScore++;
         } else {
           print("Hann klúðraði!");
           fact tempfact = fact(team: this.homeTeam,
               player: this.homeTeam.players[randomNumber3 + 1],
-              action: "klúðraði færi");
+              action: "klúðraði færi", time: this.time);
           this.matchFacts.add(tempfact);
         }
       } else {
@@ -68,13 +69,13 @@ class footballGame {
           print("Og hann skorar!");
           fact tempfact = fact(team: this.awayTeam,
               player: this.awayTeam.players[randomNumber3 + 1],
-              action: "skoraði mark");
+              action: "skoraði mark", time: this.time);
           this.awayTeamScore++;
           this.matchFacts.add(tempfact);
         } else {
           fact tempfact = fact(team: this.awayTeam,
               player: this.awayTeam.players[randomNumber3 + 1],
-              action: "klúðraði færi");
+              action: "klúðraði færi", time: this.time);
           print("Hann klúðraði!");
           this.matchFacts.add(tempfact);
         }

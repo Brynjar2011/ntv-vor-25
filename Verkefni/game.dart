@@ -121,7 +121,7 @@ void main() {
 
   for (int i = 0; i <= 90; i++) {
     match.playGame(i);
-    sleep(Duration(milliseconds: 500));
+    sleep(Duration(milliseconds: 250));
   }
   match.printMatchFacts();
 }
