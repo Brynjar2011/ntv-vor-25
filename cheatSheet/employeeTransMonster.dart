@@ -29,7 +29,7 @@ void main() {
     String username = createUserName(employeeName);
     var random = Random();
     int randomCompany = random.nextInt(3);
-    int randomAge = random.nextInt(25);
+    int randomAge = random.nextInt(45);
     int age = randomAge + 20;
     company tempCompany = myCompanyList[randomCompany];
     //Búum til nýtt "employee" object. p.s. Object er basically okkar
