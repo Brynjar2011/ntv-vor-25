@@ -41,6 +41,7 @@ class footballGame {
     int randomNumber2 = r1.nextInt(11);
     int randomNumber3 = r1.nextInt(10);
 
+
     if (randomNumber1 == randomNumber2) {
       print("Það er eitthvað að gerast!");
       if (randomNumber1 >= 6) {
@@ -81,13 +82,30 @@ class footballGame {
         }
 
       }
+
     }
     print(
       "${minute}:${homeTeam.name} ${homeTeamScore}-${awayTeamScore} ${awayTeam.name}",
     );
 
   }
+//Set inn yellow card aðferð í football game class
+  void giveYellowCard(footballTeam, footballPlayer player){
+    //Held svo utan um heildarfjölda gulra spjalda hjá viðkomandi leikmanni
+    player.yellowCards++;
 
+    if(player.yellowCards ==1) {
+      //fyrra gula spjald gefið
+      print("Gult spjald ${time}: ${player.getName()} fær GULT spjald!!");
+
+      fact tempfact = fact(
+      team: footballTeam,
+      player: player,
+      action: "fékk GULT spjald",
+      time: time
+      );
+    }
+  }
 }
 
 class footballTeam {
@@ -115,6 +133,7 @@ class footballPlayer {
   String firstName;
   String lastName;
   String position;
+  int yellowCards = 0;   //Bæti við línunni til að tracka gul spjöld
   footballPlayer({
     required this.squadNumber,
     required this.firstName,
