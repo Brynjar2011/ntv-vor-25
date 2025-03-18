@@ -40,7 +40,6 @@ class Player {
     //Heildarstaðan hjá hvorum spilara uppfærð....
     score += roundScore;
     print('$name1 fékk samtals $roundScore í þessari umferð. Heildartalan: $score');
-    print('$name2 fékk samtals $roundScore í þessari umferð. Heildartalan: $score');
   }
 }
 
@@ -50,28 +49,28 @@ void main() {
   List<Dice> player2Dice = [Dice(), Dice()];
 
   // Spilarar/leikmenn græjaðir
-  Player player1 = Player(name1:"Haukur", name2: "Gunnars");
-  Player player2 = Player(name1:"Kristinn", name2: "Hauks");
+  Player player1 = Player(name1:"Haukur");
+  Player player2 = Player(name1:"Kristinn");
 
-  // Set the number of rounds
-  int lotur = 5;
-
+  // tölugildi fyrir fjölda af lotum sem á að spila
+  int lotur = 3;
+  print("\nVelkomin í TENGINGAKAST!!!!!!!");
   // Spilað í x fjölda lotna skv skilgreiningunni hér að ofan (int lotur)
   for (int i = 1; i <= lotur; i++) {
-    print("Velkomin í TENGINGAKAST!!!!!!!");
+
     print("\n=== Lota $i===");
 
     // kallar fram/sýnir köstin í hverri lotu
     print("${player1.name1} á að gera:");
     player1.rolltheDice(player1Dice);
 
-    print("\n${player2.name2} á að gera:");
+    print("\n${player2.name1} á að gera:");
     player2.rolltheDice(player2Dice);
 
     // Sýnir heildarstöðuna
     print("\nHeildarstaðan:");
     print("${player1.name1}: ${player1.score}");
-    print("${player2.name2}: ${player2.score}");
+    print("${player2.name1}: ${player2.score}");
 
     // Tekur pásu á milli "lota" fékk þetta tips frá Claude
     if (i < lotur) {
@@ -83,13 +82,14 @@ void main() {
   // Reiknar lokastöðuna og hver sigrar eða ef endar með jafntefli
   print("\n----LOKASTAÐAN----");
   print("${player1.name1}: ${player1.score}");
-  print("${player2.name2}: ${player2.score}");
+  print("${player2.name1}: ${player2.score}");
 
   if (player1.score > player2.score) {
     print("${player1.name1} Sigrar");
   } else if (player2.score > player1.score) {
-    print("${player2.name2} Sigrar");
+    print("${player2.name1} Sigrar");
   } else {
     print("Jafntefli!!!");
   }
+
 }
