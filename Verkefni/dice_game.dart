@@ -1,41 +1,95 @@
 import 'dart:math';
+import 'dart:io';
 
+//Bý til klassa fyrir tening með 6 hliðum
+class Dice {
+  int sides;
 
-//1. Constructor: The class should accept the number of sides (default to 6).
-// 2. Method: A function that returns a random integer from 1 to the number of sides.
-//Key Points to Consider:
-// • How to handle randomness .
-// • How to store the number of sides.
+  Dice({this.sides = 6});
 
-class diceClass {
-  int sides = 6;
+  var diceSides = Random();
 
-  diceClass ({required this.sides})
+  //Aðferð til að kasta teningum og fá random tölu (frá 1-6) - Claude kemur sterkt inn
+  //Þarf að bæta við +1 annars kemur stundum upp 0 (á að byrja á 1)
+  int roll(){
+    return diceSides.nextInt(sides) + 1;
+  }
 
+  }
+
+  //Bý til klassa til að halda utan um spilara og stigafjölda - byrjar í 0.
+  //Var fyrst með 2 String - name 1 og name 2...endaði í rugli...leitaði hjálpar.
+class Player {
+  String name1;
+  int score = 0;
+
+  Player({required this.name1});
+
+//Bý til aðferðina við það að kasta teningum og uppfæra stöðuna hjá hvorum
+//spilara fyrir sig...endaði í rulginu og fékk tips frá Claude (mjög stórt tips)
+
+  void rolltheDice(List<Dice> dice) {
+    int roundScore = 0;
+
+    //kasta teningunum og bæti við töluna sem komin er
+    for (int i = 0; i < dice.length; i++) {
+      int rollResult = dice[i].roll();
+      roundScore += rollResult;
+      print('$name1 fékk: $rollResult á teningi ${i + 1}');
+    }
+    //Heildarstaðan hjá hvorum spilara uppfærð....
+    score += roundScore;
+    print('$name1 fékk samtals $roundScore í þessari umferð. Heildartalan: $score');
+    print('$name2 fékk samtals $roundScore í þessari umferð. Heildartalan: $score');
+  }
 }
 
-//1. Name: A field that identifies the player (e.g., “Player 1”).
-// 2. Score: A field to hold the player’s accumulated points.
-// 3. Method: A function that takes in a list of dice, rolls them, and updates the player’s score with the sum of the rolls.
+void main() {
+  // Tveir teningar skilgreinir fyrir hvorn spilara....lenti í veseni og Claude á þetta skuldlaust
+  List<Dice> player1Dice = [Dice(), Dice()];
+  List<Dice> player2Dice = [Dice(), Dice()];
 
-// Key Points to Consider:
-// • Ensuring the total score correctly increments after each roll.
-// • Handling multiple dice.
-class player {
+  // Spilarar/leikmenn græjaðir
+  Player player1 = Player(name1:"Haukur", name2: "Gunnars");
+  Player player2 = Player(name1:"Kristinn", name2: "Hauks");
 
+  // Set the number of rounds
+  int lotur = 5;
 
+  // Spilað í x fjölda lotna skv skilgreiningunni hér að ofan (int lotur)
+  for (int i = 1; i <= lotur; i++) {
+    print("Velkomin í TENGINGAKAST!!!!!!!");
+    print("\n=== Lota $i===");
+
+    // kallar fram/sýnir köstin í hverri lotu
+    print("${player1.name1} á að gera:");
+    player1.rolltheDice(player1Dice);
+
+    print("\n${player2.name2} á að gera:");
+    player2.rolltheDice(player2Dice);
+
+    // Sýnir heildarstöðuna
+    print("\nHeildarstaðan:");
+    print("${player1.name1}: ${player1.score}");
+    print("${player2.name2}: ${player2.score}");
+
+    // Tekur pásu á milli "lota" fékk þetta tips frá Claude
+    if (i < lotur) {
+      print("\nÝttu bara á -ENTER- til að halda áfram....");
+      stdin.readLineSync();
+    }
+  }
+
+  // Reiknar lokastöðuna og hver sigrar eða ef endar með jafntefli
+  print("\n----LOKASTAÐAN----");
+  print("${player1.name1}: ${player1.score}");
+  print("${player2.name2}: ${player2.score}");
+
+  if (player1.score > player2.score) {
+    print("${player1.name1} Sigrar");
+  } else if (player2.score > player1.score) {
+    print("${player2.name2} Sigrar");
+  } else {
+    print("Jafntefli!!!");
+  }
 }
-
-//3. Main Game Logic
-
-// Requirements:
-// 1. Two Dice per Player: Create two separate dice instances for each player.
-// 2. Two Players: Instantiate two Player objects
-// 3. Number of Rounds: Let each player roll their dice a fixed number of times (e.g., 3 rounds).
-// 4. Output:
-// • After each round, display the roll result for each player and their updated total score.
-// • At the end, compare final scores and declare a winner or a tie.
-
-// Key Points to Consider:
-// • How to structure the rounds in a loop.
-// • Displaying intermediate and final results in a clear format.
