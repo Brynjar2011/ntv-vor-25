@@ -1,6 +1,9 @@
 import 'dart:math';
 import 'dart:io';
 
+//Gaf mér ekki alveg nægan tíma með þetta verkefni og treysti full mikið á Claude
+//við úrlausnina þegar ég lenti í brasi í stað þess að styðjast við eldri verkefni oþh.
+
 //Bý til klassa fyrir tening með 6 hliðum
 class Dice {
   int sides;
