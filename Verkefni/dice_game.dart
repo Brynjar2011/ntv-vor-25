@@ -35,11 +35,12 @@ class Player {
     for (int i = 0; i < dice.length; i++) {
       int rollResult = dice[i].roll();
       roundScore += rollResult;
-      print('$name1 fékk: $rollResult á teningi ${i + 1}');
+      print("$name1 fékk: $rollResult á teningi ${i + 1}");
+      sleep(Duration (seconds: 1));
     }
     //Heildarstaðan hjá hvorum spilara uppfærð....
     score += roundScore;
-    print('$name1 fékk samtals $roundScore í þessari umferð. Heildartalan: $score');
+    print("$name1 fékk samtals $roundScore í þessari umferð. Heildartalan: $score");
   }
 }
 
@@ -72,11 +73,14 @@ void main() {
     print("${player1.name1}: ${player1.score}");
     print("${player2.name1}: ${player2.score}");
 
-    // Tekur pásu á milli "lota" fékk þetta tips frá Claude
+    /* Tekur pásu á milli "lota" fékk þetta tips frá Claude, gæti líka notað það í staðinn
+    fyrir sleep duration í línu 39
     if (i < lotur) {
       print("\nÝttu bara á -ENTER- til að halda áfram....");
       stdin.readLineSync();
-    }
+    }*/
+
+
   }
 
   // Reiknar lokastöðuna og hver sigrar eða ef endar með jafntefli
