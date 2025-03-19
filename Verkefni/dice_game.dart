@@ -74,7 +74,7 @@ void main() {
     print("${player2.name1}: ${player2.score}");
 
     /* Tekur pásu á milli "lota" fékk þetta tips frá Claude, gæti líka notað það í staðinn
-    fyrir sleep duration í línu 39
+    fyrir sleep duration í línu 39 eða bara bætt því inn líka
     if (i < lotur) {
       print("\nÝttu bara á -ENTER- til að halda áfram....");
       stdin.readLineSync();
